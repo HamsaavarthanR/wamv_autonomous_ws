@@ -1,0 +1,34 @@
+## sensor_params.yaml
+# This file contains the parameters for the camera and LiDAR sensors used in the perception stack.
+
+## EXAMPLE ##
+# camera:
+#   intrinsic_matrix: [fx, 0, cx, 0, fy, cy, 0, 0, 1]
+#   distortion_coeffs: [k1, k2, p1, p2, k3]
+
+# lidar_to_camera:
+#   extrinsic_matrix: [r11, r12, r13, tx,
+#                      r21, r22, r23, ty,
+#                      r31, r32, r33, tz,
+#                      0,   0,   0,   1]
+
+
+# Name of the node
+sensor_fusion_node:
+  camera:
+    intrinsic_matrix: [762.7223, 0.0, 640.0, 
+                      0.0, 762.7223, 360.0, 
+                      0.0, 0.0, 1.0]
+    distortion_coeffs: [0.0, 0.0, 0.0, 0.0, 0.0]
+    projection_matrix: [762.7223, 0.0, 640.0, 0.0,
+                        0.0, 762.7223, 360.0, 0.0,
+                        0.0, 0.0, 1.0, 0.0]
+  lidar_to_camera:
+    source_frame: "wamv/wamv/base_link/lidar_wamv_sensor"
+    # NOTE: Camera link is not same as camera_optical_frame
+    target_frame: "wamv/wamv/front_left_camera_link_optical"
+    # Optional fallback extrinsic matrix if not provided by the LiDAR
+    extrinsic_matrix: [1.0, 0.0, 0.0, 0.0,
+                       0.0, 1.0, 0.0, 0.0,
+                       0.0, 0.0, 1.0, 0.0,
+                       0.0, 0.0, 0.0, 1.0]

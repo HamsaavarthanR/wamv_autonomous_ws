@@ -1,0 +1,14 @@
+# ROS 2 build and install
+build/
+install/
+log/
+
+# OS and editor
+.DS_Store
+*.swp
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
