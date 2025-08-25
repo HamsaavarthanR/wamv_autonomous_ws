@@ -1,0 +1,17 @@
+# Name of the node
+slam_node:
+  # Parameters for the SLAM algorithm
+  lidar:
+    topic: '/wamv/sensors/lidars/lidar_wamv_sensor/points'  # Topic for LiDAR data
+    frame_id: 'wamv/wamv/base_link/lidar_wamv_sensor'   # Frame ID for LiDAR
+    scan_period: 0.1  # LiDAR scan period in seconds
+    timestamp_unit: 0  # Unit of timestamp in the point cloud (0: seconds, 1: milliseconds, 2: microseconds, 3: nanoseconds)
+  imu:
+    topic: '/wamv/sensors/imu/imu/data'    # Topic for IMU data
+    frame_id: 'wamv/wamv/imu_wamv_link/imu_wamv_sensor'     # Frame ID for IMU
+  imu_to_lidar_transform:
+    extrinsic_T: [-0.399, -0.2, -0.5]  # Translation from IMU to LiDAR
+    extrinsic_R: [1.0, 0.0, 0.0,
+                  0.0, 1.0, 0.0,
+                  0.0, 0.0, 1.0]  # Rotation from IMU to LiDAR
+  
